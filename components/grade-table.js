@@ -23,6 +23,8 @@ class GradeTable {
       tableRow.append(name, course, grade, operations);
 
       this.tableElement.append(tableRow);
+
+      this.renderGradeRow(tableRow, this.deleteGrade);
     }
   }
   onDeleteClick(deleteGrade) {
@@ -30,34 +32,33 @@ class GradeTable {
   }
   renderGradeRow(grades, deleteGrade) {
     this.tableElement = document.querySelector("tbody");
-    for(var i = 0; i < grades.length; i++) {
-      var studentGrades = grades[i];
 
-      var newTableRow = document.createElement("tr");
+    var studentGrades = grades[i];
 
-      var newName = document.createElement("td");
-      newName.textContent = studentGrades.name;
+    var newTableRow = document.createElement("tr");
 
-      var newCourse = document.createElement("td");
-      newCourse.textContent = studentGrades.course;
+    var newName = document.createElement("td");
+    newName.textContent = studentGrades.name;
 
-      var newGrade = document.createElement("td");
-      newGrade.textContent = studentGrades.grade;
+    var newCourse = document.createElement("td");
+    newCourse.textContent = studentGrades.course;
 
-      var newOperations = document.createElement("td");
+    var newGrade = document.createElement("td");
+    newGrade.textContent = studentGrades.grade;
 
-      var deleteButton = document.createElement("button");
-      deleteButton.innerHTML = "DELETE";
-      deleteButton.style.class = "btn btn-danger";
-      deleteButton.addEventListener("click", function() {
-        deleteGrade(grades.id);
-      });
+    var newOperations = document.createElement("td");
 
-      newOperations.append(deleteButton);
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "DELETE";
+    deleteButton.style.class = "btn btn-danger";
+    deleteButton.addEventListener("click", function() {
+      deleteGrade(grades.id);
+    });
 
-      newTableRow.append(newName, newCourse, newGrade, newOperations);
+    newOperations.append(deleteButton);
 
-      this.tableElement.append(newTableRow);
-    }
+    newTableRow.append(newName, newCourse, newGrade, newOperations);
+
+    this.tableElement.append(newTableRow);
   }
 };
