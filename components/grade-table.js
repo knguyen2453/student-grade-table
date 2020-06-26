@@ -29,6 +29,7 @@ class GradeTable {
     this.deleteGrade = deleteGrade;
   }
   renderGradeRow(grades, deleteGrade) {
+    this.tableElement = document.querySelector("tbody");
     for(var i = 0; i < grades.length; i++) {
       var studentGrades = grades[i];
 
@@ -56,7 +57,7 @@ class GradeTable {
 
       newTableRow.append(newName, newCourse, newGrade, newOperations);
 
-      this.tableElement.append(tableRow);
+      this.tableElement.append(newTableRow);
     }
   }
 };
