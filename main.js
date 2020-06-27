@@ -11,4 +11,4 @@ var gradeForm = new GradeForm(formElement);
 
 var app = new App(gradeTable, pageHeader, gradeForm);
 
-app.start(this.gradeTable.onDeleteClick(this.deleteGrade));
+app.start();
