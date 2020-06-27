@@ -38,7 +38,7 @@ class GradeTable {
     var deleteButton = document.createElement("button");
     deleteButton.innerHTML = "DELETE";
     deleteButton.addEventListener("click", function() {
-      deleteGrade(grades.id);
+      this.deleteGrade(studentGrades.id);
     });
 
     newOperations.append(deleteButton);
